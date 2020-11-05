@@ -4,6 +4,7 @@ import { Badge, Table, Button } from 'reactstrap'
 import { bindActionCreators } from 'redux'
 import * as productActions from '../../redux/actions/productActions'
 import * as cartActions from '../../redux/actions/cartActions'
+import {Link} from 'react-router-dom'
 
 class ProductList extends Component {
 
@@ -33,7 +34,7 @@ class ProductList extends Component {
                         {this.props.products.map(product => (
                             <tr key={product.id}>
                                 <th scope="row">{product.id}</th>
-                                <td>{product.productName}</td>
+                                <Link to={"/saveProduct/"+product.id}><td>{product.productName}</td></Link>
                                 <td>{product.unitPrice}</td>
                                 <td>{product.quantityPerUnit}</td>
                                 <td>{product.unitsInStock}</td>
